@@ -1,4 +1,4 @@
-seats = [None, None, "Kacper", None, "Anna", None, None, None, None, "Dawid"] #Przykładowa lista do sprawdzania, czy dana funkcja działa prawidłowo
+seats = [None, None, "Kacper", "Jan", None, None, "Aleksandra", None, None, "Wioletta"] #Przykładowa lista do sprawdzania, czy dana funkcja działa prawidłowo
 #Funkcja, która pozwala na wyświetlenie aktualnego stanu rezerwacji miejsc
 def print_seats(seats:list):
     for i in range(len(seats)):
