@@ -21,3 +21,44 @@ Miejsce nr 8 jest wolne
 Miejsce nr 9 jest wolne
 Miejsce nr 10 jest już zarezerwowane przez Wioletta
 ```
+
+## Funkcja `add_reservation`
+Funkcja `add_reservation` pozwala na dodanie nowej rezerwacji. Użytkownik podaje swoje imię oraz numer miejsca, które chce zarezerwować. Sprawdzamy czy numer miejsca jest poprawny (czy mieści się w zakresie) oraz czy miejsce jest wolne (czy wartość w liście jest równe None). Jeżeli warunki są spełnione, zapisujemy imię użytkownika w odpowiednim indeksie naszej listy.
+### Przykładowe użycie:
+```python
+print_seats(seats) #Sprawdzamy początkowy stan miejsc z naszej listy za pomocą funkcji print_seats
+print('\n') #Dla lepszej czytelności przechodzimy do nowej linii
+add_reservation(seats) #Wybieramy odpowiednie miejsce i rezerwujemy je za pomocą funkcji add_reservation
+print('\n') #Ponownie przechodzimy do nowej linii dla lepszej czytelności
+print_seats(seats) #Sprawdzamy stan miejsc po wywołaniu funkcji add_reservation
+```
+### Output:
+```
+Miejsce nr 1 jest wolne
+Miejsce nr 2 jest wolne
+Miejsce nr 3 jest już zarezerwowane przez Kacper
+Miejsce nr 4 jest już zarezerwowane przez Jan
+Miejsce nr 5 jest wolne
+Miejsce nr 6 jest wolne
+Miejsce nr 7 jest już zarezerwowane przez Aleksandra
+Miejsce nr 8 jest wolne
+Miejsce nr 9 jest wolne
+Miejsce nr 10 jest już zarezerwowane przez Wioletta
+
+
+Podaj swoje imię: Grzegorz
+Podaj numer miejsca, które chcesz zarezerwować (miejsce musi być wolne): 6
+Rezerwacja zakończona pomyślnie!
+
+
+Miejsce nr 1 jest wolne
+Miejsce nr 2 jest wolne
+Miejsce nr 3 jest już zarezerwowane przez Kacper
+Miejsce nr 4 jest już zarezerwowane przez Jan
+Miejsce nr 5 jest wolne
+Miejsce nr 6 jest już zarezerwowane przez Grzegorz
+Miejsce nr 7 jest już zarezerwowane przez Aleksandra
+Miejsce nr 8 jest wolne
+Miejsce nr 9 jest wolne
+Miejsce nr 10 jest już zarezerwowane przez Wioletta
+```

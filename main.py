@@ -26,5 +26,7 @@ def add_reservation(seats:list):
         seats[seat_number - 1] = name
         print("Rezerwacja zakończona pomyślnie!")
 print_seats(seats)
+print('\n')
 add_reservation(seats)
+print('\n')
 print_seats(seats)
