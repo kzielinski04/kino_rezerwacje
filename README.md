@@ -62,3 +62,42 @@ Miejsce nr 8 jest wolne
 Miejsce nr 9 jest wolne
 Miejsce nr 10 jest już zarezerwowane przez Wioletta
 ```
+## Funkcja `remove_reservation`
+Funkcja `remove_reservation` pozwala na usunięcie istniejącej już rezerwacji. Użytkownik podaje numer miejsca, które chce zwolnić. Sprawdzamy, czy numer miejsca jest poprawny (czy mieści się w zakresie) i czy miejsce jest zarezerwowane (czy wartość w naszej liście nie jest `None`). Jeśli miejsce jest zarezerwowane, usuwamy rezerwację, ustawiając wartość `None` w odpowiednim indeksie listy.
+### Przykładowe użycie:
+```python
+print_seats(seats) #Sprawdzamy początkowy stan miejsc z naszej listy za pomocą funkcji print_seats
+print('\n') #Dla lepszej czytelności przechodzimy do nowej linii
+remove_reservation(seats) #Wybieramy odpowiednie miejsce i usuwamy rezerwację za pomocą funkcji remove_reservation
+print('\n') #Ponownie przechodzimy do nowej linii dla lepszej czytelności
+print_seats(seats) #Sprawdzamy stan miejsc po wywołaniu funkcji remove_reservation
+```
+### Output:
+```
+Miejsce nr 1 jest wolne
+Miejsce nr 2 jest wolne
+Miejsce nr 3 jest już zarezerwowane przez Kacper
+Miejsce nr 4 jest już zarezerwowane przez Jan
+Miejsce nr 5 jest wolne
+Miejsce nr 6 jest wolne
+Miejsce nr 7 jest już zarezerwowane przez Aleksandra
+Miejsce nr 8 jest wolne
+Miejsce nr 9 jest wolne
+Miejsce nr 10 jest już zarezerwowane przez Wioletta
+
+
+Podaj numer miejsca, którego rezerwację chcesz anulować: 4
+Anulowanie rezerwacji zakończone pomyślnie!
+
+
+Miejsce nr 1 jest wolne
+Miejsce nr 2 jest wolne
+Miejsce nr 3 jest już zarezerwowane przez Kacper
+Miejsce nr 4 jest wolne
+Miejsce nr 5 jest wolne
+Miejsce nr 6 jest wolne
+Miejsce nr 7 jest już zarezerwowane przez Aleksandra
+Miejsce nr 8 jest wolne
+Miejsce nr 9 jest wolne
+Miejsce nr 10 jest już zarezerwowane przez Wioletta
+```
