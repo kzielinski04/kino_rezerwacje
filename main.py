@@ -41,6 +41,36 @@ def remove_reservation(seats:list):
         seats[seat_number - 1] = None
         print("Anulowanie rezerwacji zakończone pomyślnie!\n")
 
+#Funkcja, która pozwala na zmodyfikowanie istniejącej rezerwacji
+def modify_reservation(seats:list):
+    try:
+        seat_number_previous = int(input("Podaj numer miejsca, którego rezerwację chcesz zmodyfikować: "))
+    except ValueError:
+        print("Wprowadzono nieprawidłową wartość!\n")
+        exit()
+    if seat_number_previous - 1 < 0 or seat_number_previous > len(seats):
+        print("Wprowadzona wartość nie mieści się w zakresie!\n")
+        exit()
+    elif seats[seat_number_previous - 1] == None:
+        print("Wybrane miejsce nie zostało wcześniej zarezerwowane!\n")
+        exit()
+    else:
+        try:
+            seat_number_new = int(input("Podaj numer nowego miejsca, na które chcesz przenieść rezerwację: "))
+        except ValueError:
+            print("Wprowadzono nieprawidłową wartość!\n")
+            exit()
+        if seat_number_new - 1 < 0 or seat_number_new > len(seats):
+            print("Wprowadzona wartość nie mieści się w zakresie!\n")
+            exit()
+        elif seats[seat_number_new - 1] != None:
+            print("Wybrane miejsce jest już zajęte!\n")
+            exit()
+        else:
+            seats[seat_number_new - 1] = seats[seat_number_previous - 1]
+            seats[seat_number_previous - 1] = None
+            print("Modyfikacja rezerwacji zakończona pomyślnie!\n")
+
 print_seats(seats)
 print('\n')
 add_reservation(seats)
