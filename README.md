@@ -101,3 +101,43 @@ Miejsce nr 8 jest wolne
 Miejsce nr 9 jest wolne
 Miejsce nr 10 jest już zarezerwowane przez Wioletta
 ```
+## Funkcja `modify_reservation`
+Funkcja `modify_reservation` pozwala na modyfikację istniejącej rezerwacji. Użytkownik podaje numer miejsca, które chce zmodyfikować. Sprawdzamy, czy numer miejsca jest poprawny oraz czy miejsce jest zarezerwowane. Następnie użytkownik podaje nowy numer miejsca, na które chce przenieść rezerwację. Sprawdzamy, czy nowy numer miejsca jest poprawny i czy jest wolny. Jeśli warunki są spełnione, przenosimy rezerwację na nowe miejsce, ustawiając odpowiednie wartości w naszej liście miejsc.
+### Przykładowe użycie:
+```python
+print_seats(seats) #Sprawdzamy początkowy stan miejsc z naszej listy za pomocą funkcji print_seats
+print('\n') #Dla lepszej czytelności przechodzimy do nowej linii
+modify_reservation(seats) #Modyfikujemy rezerwację za pomocą funkcji modify_reservation
+print('\n') #Ponownie przechodzimy do nowej linii dla lepszej czytelności
+print_seats(seats) #Sprawdzamy stan miejsc po wywołaniu funkcji modify_reservation
+```
+### Output:
+```
+Miejsce nr 1 jest wolne
+Miejsce nr 2 jest wolne
+Miejsce nr 3 jest już zarezerwowane przez Kacper
+Miejsce nr 4 jest już zarezerwowane przez Jan
+Miejsce nr 5 jest wolne
+Miejsce nr 6 jest wolne
+Miejsce nr 7 jest już zarezerwowane przez Aleksandra
+Miejsce nr 8 jest wolne
+Miejsce nr 9 jest wolne
+Miejsce nr 10 jest już zarezerwowane przez Wioletta
+
+
+Podaj numer miejsca, którego rezerwację chcesz zmodyfikować: 10
+Podaj numer nowego miejsca, na które chcesz przenieść rezerwację: 2
+Modyfikacja rezerwacji zakończona pomyślnie!
+
+
+Miejsce nr 1 jest wolne
+Miejsce nr 2 jest już zarezerwowane przez Wioletta
+Miejsce nr 3 jest już zarezerwowane przez Kacper
+Miejsce nr 4 jest już zarezerwowane przez Jan
+Miejsce nr 5 jest wolne
+Miejsce nr 6 jest wolne
+Miejsce nr 7 jest już zarezerwowane przez Aleksandra
+Miejsce nr 8 jest wolne
+Miejsce nr 9 jest wolne
+Miejsce nr 10 jest wolne
+```
