@@ -7,6 +7,7 @@ def print_seats(seats:list):
             print(f"Miejsce nr {i + 1} jest wolne")
         else:
             print(f"Miejsce nr {i + 1} jest już zarezerwowane przez {seats[i]}")
+    print('\n')
 
 #Funkcja, która pozwala na dodanie nowej rezerwacji
 def add_reservation(seats:list):
@@ -14,17 +15,17 @@ def add_reservation(seats:list):
     try:
         seat_number = int(input("Podaj numer miejsca, które chcesz zarezerwować (miejsce musi być wolne): "))
     except ValueError:
-        print("Wprowadzono nieprawidłową wartość!")
+        print("Wprowadzono nieprawidłową wartość!\n")
         exit()
     if seat_number - 1 < 0 or seat_number - 1 > len(seats):
-        print("Wprowadzono nieprawidłową wartość!")
+        print("Wprowadzono nieprawidłową wartość!\n")
         exit()
     elif seats[seat_number - 1] != None:
-        print("Wybrane miejsce jest już zajęte!")
+        print("Wybrane miejsce jest już zajęte!\n")
         exit()
     else:
         seats[seat_number - 1] = name
-        print("Rezerwacja zakończona pomyślnie!")
+        print("Rezerwacja zakończona pomyślnie!\n")
 
 #Funkcja, która pozwala na usunięcie istniejącej rezerwacji
 def remove_reservation(seats:list):
@@ -71,8 +72,28 @@ def modify_reservation(seats:list):
             seats[seat_number_previous - 1] = None
             print("Modyfikacja rezerwacji zakończona pomyślnie!\n")
 
-print_seats(seats)
-print('\n')
-add_reservation(seats)
-print('\n')
-print_seats(seats)
+#Proste menu
+def menu():
+    while True:
+        print("1 - WYŚWIETL STAN REZERWACJI MIEJSC")
+        print("2 - DODAJ REZERWACJĘ")
+        print("3 - USUŃ REZERWACJĘ")
+        print("4 - ZMODYFIKUJ REZERWACJĘ")
+        print("5 - WYJDŹ")
+        print("-----------------------------------")
+        try:
+            choice = int(input("Co chcesz zrobić?: "))        
+        except ValueError:
+            print("Wprowadzona wartość jest nieprawidłowa!")
+        match choice:
+            case 1:
+                print_seats(seats)
+            case 2:
+                add_reservation(seats)
+            case 3:
+                remove_reservation(seats)
+            case 4:
+                modify_reservation(seats)
+            case 5:
+                exit()
+menu()
