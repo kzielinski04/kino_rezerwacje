@@ -72,6 +72,21 @@ def modify_reservation(seats:list):
             seats[seat_number_previous - 1] = None
             print("Modyfikacja rezerwacji zakończona pomyślnie!\n")
 
+#Funkcja, która pozwala na sprawdzenie dostępności wielu miejsc
+def check_availability(seats:list[int]):
+    seats_numbers = []
+    seats_numbers = input("Podaj numery miejsc, których dostępność chcesz sprawdzić: ").split()
+    for i in range(len(seats_numbers)):
+        seats_numbers[i] = int(seats_numbers[i])
+        seats_numbers[i] -= 1
+    for j in seats_numbers:
+        if seats[j] == None:
+            print(f"Miejsce nr {j + 1} jest wolne")
+        else:
+            print(f"Miejsce nr {j + 1} jest już zarezerwowane przez {seats[j]}")
+    print('\n')
+
+
 #Proste menu
 def menu():
     while True:
@@ -79,7 +94,8 @@ def menu():
         print("2 - DODAJ REZERWACJĘ")
         print("3 - USUŃ REZERWACJĘ")
         print("4 - ZMODYFIKUJ REZERWACJĘ")
-        print("5 - WYJDŹ")
+        print("5 - SPRAWDŹ DOSTĘPNOŚĆ DLA WIELU MIEJSC")
+        print("6 - WYJDŹ")
         print("-----------------------------------")
         try:
             choice = int(input("Co chcesz zrobić?: "))        
@@ -95,5 +111,7 @@ def menu():
             case 4:
                 modify_reservation(seats)
             case 5:
+                check_availability(seats)
+            case 6:
                 exit()
 menu()
