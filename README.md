@@ -5,7 +5,7 @@ Jest to program stworzony w języku Python, pozwalający na zarządzanie przez u
 Funkcja `print_seats` pozwala na wyświetlenie aktualnego stanu wszystkich miejsc w kinie, informując, które z nich są wolne, a które są zarezerwowane i przez kogo.
 ### Przykładowe użycie:
 ```python
-seats = [None, None, "Kacper", "Jan", None, None, "Aleksandra", None, None, "Wioletta"] #Przykładowa lista przechowująca stan miejsc w kinie
+seats = [None, None, "Kacper", "Jan", None, None, "Aleksandra", None, None, "Wioletta"] #Przykładowa lista przechowująca stany miejsc w kinie
 print_seats(seats) #Za pomocą funkcji print_seats wyświetlamy stan miejsc w kinie (dla wartości None dane miejsce jest wolne)
 ```
 ### Output:
@@ -140,4 +140,31 @@ Miejsce nr 7 jest już zarezerwowane przez Aleksandra
 Miejsce nr 8 jest wolne
 Miejsce nr 9 jest wolne
 Miejsce nr 10 jest wolne
+```
+## Funkcja `check_availability`
+Funkcja `check_availability` pozwala na sprawdzenie dostępności wielu miejsc jednocześnie. Użytkownik podaje listę numerów miejsc oddzieloną spacjami, a program sprawdza i informuje, które z nich są wolne, a które są zarezerwowane.
+### Przykładowe użycie:
+```python
+seats = [None, None, "Kacper", "Jan", None, None, "Aleksandra", None, None, "Wioletta"] #Przykładowa lista przechowująca stany miejsc w kinie
+print('\n') #Przejdźmy do nowej linii dla lepszej czytelności
+check_availability(seats) #Za pomocą funkcji check_availability wyświetlamy stan kilku miejsc
+```
+### Output:
+```
+Miejsce nr 1 jest wolne
+Miejsce nr 2 jest wolne
+Miejsce nr 3 jest już zarezerwowane przez Kacper
+Miejsce nr 4 jest już zarezerwowane przez Jan
+Miejsce nr 5 jest wolne
+Miejsce nr 6 jest wolne
+Miejsce nr 7 jest już zarezerwowane przez Aleksandra
+Miejsce nr 8 jest wolne
+Miejsce nr 9 jest wolne
+Miejsce nr 10 jest już zarezerwowane przez Wioletta
+
+Podaj numery miejsc, których dostępność chcesz sprawdzić: 1 5 8 10
+Miejsce nr 1 jest wolne
+Miejsce nr 5 jest wolne
+Miejsce nr 8 jest wolne
+Miejsce nr 10 jest już zarezerwowane przez Wioletta
 ```
