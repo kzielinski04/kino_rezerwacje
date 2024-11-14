@@ -145,10 +145,10 @@ def menu():
                 cancel_all_reservations(seats)
             case 8:
                 exit()
-menu()
+#menu()
 
-'''
 print_seats(seats) #Sprawdzamy początkowy stan miejsc z naszej listy za pomocą funkcji print_seats
-add_multiple_reservations(seats) #Rezerwujemy kilka miejsc za pomocą funkcji add_multiple_reservations
-print_seats(seats) #Sprawdza
-'''
+add_multiple_reservations(seats) #Zarezerwujmy kilka miejsc za pomocą funkcji add_multiple_reservations
+print_seats(seats) #Sprawdzamy stan miejsc po wywołaniu funkcji add_multiple_reservations
+cancel_all_reservations(seats) #Anulujemy wszystkie nasze rezerwacje za pomocą funkcji cancel_all_reservations
+print_seats(seats) #Spr

@@ -205,3 +205,55 @@ Miejsce nr 8 jest już zarezerwowane przez Roman
 Miejsce nr 9 jest wolne
 Miejsce nr 10 jest już zarezerwowane przez Wioletta
 ```
+## Funkcja `cancel_all_reservations`
+Funkcja `cancel_all_reservations` pozwala na anulowanie przez użytkownika wszystkich swoich rezerwacji. Użytkownik podaje swoje imię, a program usuwa wszystkie miejsca zarezerwowane na to imię.
+### Przykładowe użycie:
+```python
+print_seats(seats) #Sprawdzamy początkowy stan miejsc z naszej listy za pomocą funkcji print_seats
+add_multiple_reservations(seats) #Zarezerwujmy kilka miejsc za pomocą funkcji add_multiple_reservations
+print_seats(seats) #Sprawdzamy stan miejsc po wywołaniu funkcji add_multiple_reservations
+cancel_all_reservations(seats) #Anulujemy wszystkie nasze rezerwacje za pomocą funkcji cancel_all_reservations
+print_seats(seats) #Sprawdzamy stan miejsc po wywołaniu funkcji cancel all reservations
+```
+### Output:
+```
+Miejsce nr 1 jest wolne
+Miejsce nr 2 jest wolne
+Miejsce nr 3 jest już zarezerwowane przez Kacper
+Miejsce nr 4 jest już zarezerwowane przez Jan
+Miejsce nr 5 jest wolne
+Miejsce nr 6 jest wolne
+Miejsce nr 7 jest już zarezerwowane przez Aleksandra
+Miejsce nr 8 jest wolne
+Miejsce nr 9 jest wolne
+Miejsce nr 10 jest już zarezerwowane przez Wioletta
+
+Podaj swoje imię: Daria
+Podaj numery miejsc, które chcesz zarezerwować: 1 5 6 9
+Rezerwacja miejsc zakończona pomyślnie!
+
+Miejsce nr 1 jest już zarezerwowane przez Daria
+Miejsce nr 2 jest wolne
+Miejsce nr 3 jest już zarezerwowane przez Kacper
+Miejsce nr 4 jest już zarezerwowane przez Jan
+Miejsce nr 5 jest już zarezerwowane przez Daria
+Miejsce nr 6 jest już zarezerwowane przez Daria
+Miejsce nr 7 jest już zarezerwowane przez Aleksandra
+Miejsce nr 8 jest wolne
+Miejsce nr 9 jest już zarezerwowane przez Daria
+Miejsce nr 10 jest już zarezerwowane przez Wioletta
+
+Podaj swoje imię: Daria
+Anulowanie wszystkich rezerwacji zakończone pomyślnie!
+
+Miejsce nr 1 jest wolne
+Miejsce nr 2 jest wolne
+Miejsce nr 3 jest już zarezerwowane przez Kacper
+Miejsce nr 4 jest już zarezerwowane przez Jan
+Miejsce nr 5 jest wolne
+Miejsce nr 6 jest wolne
+Miejsce nr 7 jest już zarezerwowane przez Aleksandra
+Miejsce nr 8 jest wolne
+Miejsce nr 9 jest wolne
+Miejsce nr 10 jest już zarezerwowane przez Wioletta
+```
