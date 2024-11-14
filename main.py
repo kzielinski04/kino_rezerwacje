@@ -95,7 +95,7 @@ def add_multiple_reservations(seats:list):
         seats_numbers[i] = int(seats_numbers[i])
     for j in range(len(seats_numbers)):
         if seats_numbers[j] < 1 or seats_numbers[j] > len(seats):
-            print("Wprowadzono wartość, która nie mieści się w zakresie!")
+            print("Wprowadzono wartość, która nie mieści się w zakresie!\n")
             exit()
     for k in seats_numbers:
         if seats[k - 1] != None:
@@ -111,6 +111,14 @@ def cancel_all_reservations(seats:list):
         if seats[i] == name:
             seats[i] = None
     print("Anulowanie wszystkich rezerwacji zakończone pomyślnie!\n")
+
+#Funkcja, która zapisuje stan miejsc do pliku
+def save_seats_to_file(seats:list):
+    file = open("kino.csv", 'w')
+    if file.writable():
+        for i in range(len(seats)):
+            file.write(seats[i])
+    file.close()
 
 #Proste menu
 def menu():
@@ -146,9 +154,7 @@ def menu():
             case 8:
                 exit()
 #menu()
+print_seats(seats)
+add_multiple_reservations(seats)
+save_seats_to_file(seats)
 
-print_seats(seats) #Sprawdzamy początkowy stan miejsc z naszej listy za pomocą funkcji print_seats
-add_multiple_reservations(seats) #Zarezerwujmy kilka miejsc za pomocą funkcji add_multiple_reservations
-print_seats(seats) #Sprawdzamy stan miejsc po wywołaniu funkcji add_multiple_reservations
-cancel_all_reservations(seats) #Anulujemy wszystkie nasze rezerwacje za pomocą funkcji cancel_all_reservations
-print_seats(seats) #Spr
