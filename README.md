@@ -168,3 +168,40 @@ Miejsce nr 5 jest wolne
 Miejsce nr 8 jest wolne
 Miejsce nr 10 jest już zarezerwowane przez Wioletta
 ```
+## Funkcja `add_multiple_reservations`
+Funkcja `add_multiple_reservations` pozwala na rezerwację wielu miejsc na raz. Użytkownik podaje swoje imię oraz listę numerów miejsc do rezerwacji. Program sprawdza, czy wszystkie podane miejsca są wolne, a jeśli tak, dokonuje rezerwacji.
+
+### Przykładowe użycie:
+```python
+print_seats(seats) #Sprawdzamy początkowy stan miejsc z naszej listy za pomocą funkcji print_seats
+add_multiple_reservations(seats) #Rezerwujemy kilka miejsc za pomocą funkcji add_multiple_reservations
+print_seats(seats) #Sprawdzamy stan miejsc po wywołaniu funkcji add_multiple_reservations
+```
+### Output:
+```
+Miejsce nr 1 jest wolne
+Miejsce nr 2 jest wolne
+Miejsce nr 3 jest już zarezerwowane przez Kacper
+Miejsce nr 4 jest już zarezerwowane przez Jan
+Miejsce nr 5 jest wolne
+Miejsce nr 6 jest wolne
+Miejsce nr 7 jest już zarezerwowane przez Aleksandra
+Miejsce nr 8 jest wolne
+Miejsce nr 9 jest wolne
+Miejsce nr 10 jest już zarezerwowane przez Wioletta
+
+Podaj swoje imię: Roman
+Podaj numery miejsc, które chcesz zarezerwować: 5 6 8
+Rezerwacja miejsc zakończona pomyślnie!
+
+Miejsce nr 1 jest wolne
+Miejsce nr 2 jest wolne
+Miejsce nr 3 jest już zarezerwowane przez Kacper
+Miejsce nr 4 jest już zarezerwowane przez Jan
+Miejsce nr 5 jest już zarezerwowane przez Roman
+Miejsce nr 6 jest już zarezerwowane przez Roman
+Miejsce nr 7 jest już zarezerwowane przez Aleksandra
+Miejsce nr 8 jest już zarezerwowane przez Roman
+Miejsce nr 9 jest wolne
+Miejsce nr 10 jest już zarezerwowane przez Wioletta
+```

@@ -134,4 +134,8 @@ def menu():
                 add_multiple_reservations(seats)
             case 7:
                 exit()
-menu()
+#menu()
+
+print_seats(seats) #Sprawdzamy początkowy stan miejsc z naszej listy za pomocą funkcji print_seats
+add_multiple_reservations(seats) #Rezerwujemy kilka miejsc za pomocą funkcji add_multiple_reservations
+print_seats(seats) #Sprawdza
