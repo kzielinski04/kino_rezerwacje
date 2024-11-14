@@ -104,6 +104,14 @@ def add_multiple_reservations(seats:list):
         seats[k - 1] = name
     print("Rezerwacja miejsc zakończona pomyślnie!\n")
 
+#Funkcja, która pozwala na anulowanie wszystkich rezerwacji
+def cancel_all_reservations(seats:list):
+    name = input("Podaj swoje imię: ")
+    for i in range(len(seats)):
+        if seats[i] == name:
+            seats[i] = None
+    print("Anulowanie wszystkich rezerwacji zakończone pomyślnie!\n")
+
 #Proste menu
 def menu():
     while True:
@@ -113,7 +121,8 @@ def menu():
         print("4 - ZMODYFIKUJ REZERWACJĘ")
         print("5 - SPRAWDŹ DOSTĘPNOŚĆ DLA WIELU MIEJSC")
         print("6 - ZAREZERWUJ WIELE MIEJSC")
-        print("7 - WYJDŹ")
+        print("7 - ANULUJ WSZYSTKIE SWOJE REZERWACJE")
+        print("8 - WYJDŹ")
         print("-----------------------------------")
         try:
             choice = int(input("Co chcesz zrobić?: "))        
@@ -133,9 +142,13 @@ def menu():
             case 6:
                 add_multiple_reservations(seats)
             case 7:
+                cancel_all_reservations(seats)
+            case 8:
                 exit()
-#menu()
+menu()
 
+'''
 print_seats(seats) #Sprawdzamy początkowy stan miejsc z naszej listy za pomocą funkcji print_seats
 add_multiple_reservations(seats) #Rezerwujemy kilka miejsc za pomocą funkcji add_multiple_reservations
 print_seats(seats) #Sprawdza
+'''
