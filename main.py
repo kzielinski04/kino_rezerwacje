@@ -169,4 +169,8 @@ def menu():
                 save_seats_to_file(seats)
                 exit()
 
-menu()
+#menu()
+seats = [] #Tworzymy listę, w której będziemy przechowywać stan miejsc
+print_seats(seats) #Sprawdzamy początkowy stan miejsc z naszej listy za pomocą funkcji print_seats
+load_seats_from_file(seats) #Importujemy z pliku stan miejsc do listy seats
+print_seats(seats) 

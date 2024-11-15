@@ -262,5 +262,30 @@ save_seats_to_file(seats) #Zapisujemy naszą listę miejsc do pliku
 ```
 ### Zawartość pliku po wywołaniu funkcji `save_seats_to_file`:
 ```
+None,None,Kacper,Jan,None,None,Aleksandra,None,None,Wioletta
+```
+## Funkcja `load_seats_from_file`
+Funkcja `load_seats_from_file` pozwala na załadowanie do programu stanu miejsc z pliku.
+### Przykładowe użycie:
+```python
+seats = [] #Tworzymy listę, w której będziemy przechowywać stan miejsc
+load_seats_from_file(seats) #Importujemy z pliku stan miejsc do listy seats
+print_seats(seats) #Sprawdzamy stan miejsc po wywołaniu funkcji load_seats_from_file  
+```
+### Zawartość pliku przed zaimportowaniem go do programu
+```
 None,None,Kacper,Jan,None,None,Aleksandra,None,None,None
+```
+### Output:
+```
+Miejsce nr 1 jest wolne
+Miejsce nr 2 jest wolne
+Miejsce nr 3 jest już zarezerwowane przez Kacper
+Miejsce nr 4 jest już zarezerwowane przez Jan
+Miejsce nr 5 jest wolne
+Miejsce nr 6 jest wolne
+Miejsce nr 7 jest już zarezerwowane przez Aleksandra
+Miejsce nr 8 jest wolne
+Miejsce nr 9 jest wolne
+Miejsce nr 10 jest już zarezerwowane przez Wioletta
 ```
