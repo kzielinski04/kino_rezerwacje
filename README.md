@@ -1,6 +1,34 @@
 # Dokumentacja do programu rezerwacji miejsc w kinie w Pythonie
 ## Wprowadzenie
 Jest to program stworzony w języku Python, pozwalający na zarządzanie przez użytkownika rezerwacjami miejsc w kinie. Możliwe jest m.in. dodawanie rezerwacji, usuwanie rezerwacji czy przenoszenie rezerwacji.
+## Instalacja Pythona
+Aby uruchomić ten program, musisz najpierw zainstalować Pythona. Możesz to zrobić w następujący sposób:
+### Windows
+- Pobierz instalator Pythona ze strony [python.org](https://www.python.org)
+- Uruchom instalator i upewnij się, że zaznaczyłeś/zaznaczyłaś opcję "Add Python to PATH"
+- Kliknij "Install Now"
+### Linux (Debian/Ubuntu)
+Wykonaj poniższe instrukcje w terminalu:
+```bash
+sudo apt update
+sudo apt install python3
+```
+## Tworzenie wirtualnego środowiska
+Zalecane jest korzystanie ze środowisk wirtualnych, aby odizolować swoje zależności od globalnych pakietów Pythona.
+```bash
+python3 -m venv venv
+```
+## Aktywacja wirtualnego środowiska:
+### Windows
+```bash
+venv/Scripts/activate
+```
+### Linux
+```bash
+source venv/bin/activate
+```
+## Wymagania
+- Python 3.12 lub nowszy w wersji 3
 ## Funkcja `print_seats`
 Funkcja `print_seats` pozwala na wyświetlenie aktualnego stanu wszystkich miejsc w kinie, informując, które z nich są wolne, a które są zarezerwowane i przez kogo.
 ### Przykładowe użycie:
@@ -63,9 +91,7 @@ Funkcja `remove_reservation` pozwala na usunięcie istniejącej już rezerwacji.
 ### Przykładowe użycie:
 ```python
 print_seats(seats) #Sprawdzamy początkowy stan miejsc z naszej listy za pomocą funkcji print_seats
-print('\n') #Dla lepszej czytelności przechodzimy do nowej linii
 remove_reservation(seats) #Wybieramy odpowiednie miejsce i usuwamy rezerwację za pomocą funkcji remove_reservation
-print('\n') #Ponownie przechodzimy do nowej linii dla lepszej czytelności
 print_seats(seats) #Sprawdzamy stan miejsc po wywołaniu funkcji remove_reservation
 ```
 ### Output:
@@ -81,10 +107,8 @@ Miejsce nr 8 jest wolne
 Miejsce nr 9 jest wolne
 Miejsce nr 10 jest już zarezerwowane przez Wioletta
 
-
 Podaj numer miejsca, którego rezerwację chcesz anulować: 4
 Anulowanie rezerwacji zakończone pomyślnie!
-
 
 Miejsce nr 1 jest wolne
 Miejsce nr 2 jest wolne
@@ -102,9 +126,7 @@ Funkcja `modify_reservation` pozwala na modyfikację istniejącej rezerwacji. U�
 ### Przykładowe użycie:
 ```python
 print_seats(seats) #Sprawdzamy początkowy stan miejsc z naszej listy za pomocą funkcji print_seats
-print('\n') #Dla lepszej czytelności przechodzimy do nowej linii
 modify_reservation(seats) #Modyfikujemy rezerwację za pomocą funkcji modify_reservation
-print('\n') #Ponownie przechodzimy do nowej linii dla lepszej czytelności
 print_seats(seats) #Sprawdzamy stan miejsc po wywołaniu funkcji modify_reservation
 ```
 ### Output:
@@ -120,11 +142,9 @@ Miejsce nr 8 jest wolne
 Miejsce nr 9 jest wolne
 Miejsce nr 10 jest już zarezerwowane przez Wioletta
 
-
 Podaj numer miejsca, którego rezerwację chcesz zmodyfikować: 10
 Podaj numer nowego miejsca, na które chcesz przenieść rezerwację: 2
 Modyfikacja rezerwacji zakończona pomyślnie!
-
 
 Miejsce nr 1 jest wolne
 Miejsce nr 2 jest już zarezerwowane przez Wioletta
@@ -142,7 +162,6 @@ Funkcja `check_availability` pozwala na sprawdzenie dostępności wielu miejsc j
 ### Przykładowe użycie:
 ```python
 seats = [None, None, "Kacper", "Jan", None, None, "Aleksandra", None, None, "Wioletta"] #Przykładowa lista przechowująca stany miejsc w kinie
-print('\n') #Przejdźmy do nowej linii dla lepszej czytelności
 check_availability(seats) #Za pomocą funkcji check_availability wyświetlamy stan kilku miejsc
 ```
 ### Output:
@@ -272,9 +291,9 @@ seats = [] #Tworzymy listę, w której będziemy przechowywać stan miejsc
 load_seats_from_file(seats) #Importujemy z pliku stan miejsc do listy seats
 print_seats(seats) #Sprawdzamy stan miejsc po wywołaniu funkcji load_seats_from_file  
 ```
-### Zawartość pliku przed zaimportowaniem go do programu
+### Zawartość pliku przed zaimportowaniem go do programu:
 ```
-None,None,Kacper,Jan,None,None,Aleksandra,None,None,None
+None,None,Kacper,Jan,None,None,Aleksandra,None,None,Wioletta
 ```
 ### Output:
 ```
