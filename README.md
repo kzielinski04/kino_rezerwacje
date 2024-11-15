@@ -27,9 +27,7 @@ Funkcja `add_reservation` pozwala na dodanie nowej rezerwacji. Użytkownik podaj
 ### Przykładowe użycie:
 ```python
 print_seats(seats) #Sprawdzamy początkowy stan miejsc z naszej listy za pomocą funkcji print_seats
-print('\n') #Dla lepszej czytelności przechodzimy do nowej linii
 add_reservation(seats) #Wybieramy odpowiednie miejsce i rezerwujemy je za pomocą funkcji add_reservation
-print('\n') #Ponownie przechodzimy do nowej linii dla lepszej czytelności
 print_seats(seats) #Sprawdzamy stan miejsc po wywołaniu funkcji add_reservation
 ```
 ### Output:
@@ -45,11 +43,9 @@ Miejsce nr 8 jest wolne
 Miejsce nr 9 jest wolne
 Miejsce nr 10 jest już zarezerwowane przez Wioletta
 
-
 Podaj swoje imię: Grzegorz
 Podaj numer miejsca, które chcesz zarezerwować (miejsce musi być wolne): 6
 Rezerwacja zakończona pomyślnie!
-
 
 Miejsce nr 1 jest wolne
 Miejsce nr 2 jest wolne
@@ -256,4 +252,15 @@ Miejsce nr 7 jest już zarezerwowane przez Aleksandra
 Miejsce nr 8 jest wolne
 Miejsce nr 9 jest wolne
 Miejsce nr 10 jest już zarezerwowane przez Wioletta
+```
+## Funkcja `save_seats_to_file`
+Funkcja `save_seats_to_file` pozwala na zapis aktualnego stanu miejsc do pliku.
+### Przykład użycia:
+```python
+seats = [None, None, "Kacper", "Jan", None, None, "Aleksandra", None, None, "Wioletta"] #Przykładowa lista przechowująca stany miejsc w kinie
+save_seats_to_file(seats) #Zapisujemy naszą listę miejsc do pliku
+```
+### Zawartość pliku po wywołaniu funkcji `save_seats_to_file`:
+```
+None,None,Kacper,Jan,None,None,Aleksandra,None,None,None
 ```

@@ -1,5 +1,3 @@
-import csv
-
 #Funkcja, która pozwala na wyświetlenie aktualnego stanu rezerwacji miejsc
 def print_seats(seats:list):
     for i in range(len(seats)):
@@ -116,7 +114,11 @@ def cancel_all_reservations(seats:list):
 def save_seats_to_file(seats:list):
     file = open("kino.csv", "w")
     for i in range(len(seats)):
-        file.write(str(seats[i]) + ',')
+        if i == len(seats) - 1:
+            file.write(str(seats[i]))
+        else:
+            file.write(str(seats[i]) + ',')
+    print(seats[len(seats) - 1])
     file.close()
 
 #Funkcja, która odczytuje stan miejsc z pliku
@@ -132,7 +134,6 @@ def load_seats_from_file(seats:list):
 
 #Proste menu
 def menu():
-    #seats = [None,None,"Kacper","Jan",None,None,"Aleksandra",None,None,"Wioletta"]
     seats = []
     load_seats_from_file(seats)
     while True:
