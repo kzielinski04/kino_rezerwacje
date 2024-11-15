@@ -1,4 +1,4 @@
-seats = [None, None, "Kacper", "Jan", None, None, "Aleksandra", None, None, "Wioletta"] #Przykładowa lista do sprawdzania, czy dana funkcja działa prawidłowo
+import csv
 
 #Funkcja, która pozwala na wyświetlenie aktualnego stanu rezerwacji miejsc
 def print_seats(seats:list):
@@ -114,14 +114,27 @@ def cancel_all_reservations(seats:list):
 
 #Funkcja, która zapisuje stan miejsc do pliku
 def save_seats_to_file(seats:list):
-    file = open("kino.csv", 'w')
-    if file.writable():
-        for i in range(len(seats)):
-            file.write(seats[i])
+    file = open("kino.csv", "w")
+    for i in range(len(seats)):
+        file.write(str(seats[i]) + ',')
     file.close()
+
+#Funkcja, która odczytuje stan miejsc z pliku
+def load_seats_from_file(seats:list):
+    file = open("kino.csv", "r")
+    content = file.read().split(',')
+    for i in content:
+        seats.append(i)
+    file.close()
+    for j in range(len(seats)):
+        if seats[j] == "None":
+            seats[j] = None
 
 #Proste menu
 def menu():
+    #seats = [None,None,"Kacper","Jan",None,None,"Aleksandra",None,None,"Wioletta"]
+    seats = []
+    load_seats_from_file(seats)
     while True:
         print("1 - WYŚWIETL STAN REZERWACJI MIEJSC")
         print("2 - DODAJ REZERWACJĘ")
@@ -152,9 +165,7 @@ def menu():
             case 7:
                 cancel_all_reservations(seats)
             case 8:
+                save_seats_to_file(seats)
                 exit()
-#menu()
-print_seats(seats)
-add_multiple_reservations(seats)
-save_seats_to_file(seats)
 
+menu()
