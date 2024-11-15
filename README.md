@@ -247,7 +247,8 @@ Podaj swoje imię: Daria
 Podaj numery miejsc, które chcesz zarezerwować: 1 5 6 9
 Rezerwacja miejsc zakończona pomyślnie!
 
-Miejsce nr 1 jest już zarezerwowane przez Daria
+Miejsce nr 1 jest już zarezerwowane przez Daria8
+
 Miejsce nr 2 jest wolne
 Miejsce nr 3 jest już zarezerwowane przez Kacper
 Miejsce nr 4 jest już zarezerwowane przez Jan

@@ -22,7 +22,7 @@ def add_reservation(seats:list):
         return menu()
     elif seats[seat_number - 1] != None:
         print("Wybrane miejsce jest już zajęte! Nastąpi powrót do menu głównego.\n")
-        menu()
+        return menu()
     else:
         seats[seat_number - 1] = name
         print("Rezerwacja zakończona pomyślnie!\n")
@@ -32,12 +32,14 @@ def remove_reservation(seats:list):
     try:
         seat_number = int(input("Podaj numer miejsca, którego rezerwację chcesz anulować: "))
     except ValueError:
-        print("Wprowadzono nieprawidłową wartość!\n")
-        exit()
+        print("Wprowadzono nieprawidłową wartość! Nastąpi powrót do menu głównego.\n")
+        return menu()
     if seat_number - 1 < 0 or seat_number - 1 > len(seats):
-        print("Wprowadzona wartość nie mieści się w zakresie!\n")
+        print("Wprowadzona wartość nie mieści się w zakresie! Nastąpi powrót do menu głównego.\n")
+        return menu()
     elif seats[seat_number - 1] == None:
-        print("Wybrane miejsce nie zostało wcześniej zarezerwowane!\n")  
+        print("Wybrane miejsce nie zostało wcześniej zarezerwowane! Nastąpi powrót do menu głównego.\n")
+        return menu()
     else:
         seats[seat_number - 1] = None
         print("Anulowanie rezerwacji zakończone pomyślnie!\n")
@@ -47,23 +49,26 @@ def modify_reservation(seats:list):
     try:
         seat_number_previous = int(input("Podaj numer miejsca, którego rezerwację chcesz zmodyfikować: "))
     except ValueError:
-        print("Wprowadzono nieprawidłową wartość!\n")
-        exit()
+        print("Wprowadzono nieprawidłową wartość! Nastąpi powrót do menu głównego.\n")
+        return menu()
     if seat_number_previous - 1 < 0 or seat_number_previous > len(seats):
-        print("Wprowadzona wartość nie mieści się w zakresie!\n")
-        exit()
+        print("Wprowadzona wartość nie mieści się w zakresie! Nastąpi powrót do menu głównego.\n")
+        return menu()
     elif seats[seat_number_previous - 1] == None:
-        print("Wybrane miejsce nie zostało wcześniej zarezerwowane!\n")
-        exit()
+        print("Wybrane miejsce nie zostało wcześniej zarezerwowane! Nastąpi powrót do menu głównego.\n")
+        return menu()
     else:
         try:
             seat_number_new = int(input("Podaj numer nowego miejsca, na które chcesz przenieść rezerwację: "))
         except ValueError:
-            print("Wprowadzono nieprawidłową wartość!\n")
+            print("Wprowadzono nieprawidłową wartość! Nastąpi powrót do menu głównego.\n")
+            return menu()
         if seat_number_new - 1 < 0 or seat_number_new > len(seats):
-            print("Wprowadzona wartość nie mieści się w zakresie!\n")
+            print("Wprowadzona wartość nie mieści się w zakresie! Nastąpi powrót do menu głównego.\n")
+            return menu()
         elif seats[seat_number_new - 1] != None:
-            print("Wybrane miejsce jest już zajęte!\n")
+            print("Wybrane miejsce jest już zajęte! Nastąpi powrót do menu głównego.\n")
+            return menu()
         else:
             seats[seat_number_new - 1] = seats[seat_number_previous - 1]
             seats[seat_number_previous - 1] = None
@@ -90,17 +95,17 @@ def add_multiple_reservations(seats:list):
     seats_numbers = input("Podaj numery miejsc, które chcesz zarezerwować: ").split()
     for i in range(len(seats_numbers)):
         if seats_numbers[i].isnumeric() == False:
-            print("Wprowadzono nieprawidłową wartość!\n")
-            exit()
+            print("Wprowadzono nieprawidłową wartość! Nastąpi powrót do menu głównego.\n")
+            return menu()
         seats_numbers[i] = int(seats_numbers[i])
     for j in range(len(seats_numbers)):
         if seats_numbers[j] < 1 or seats_numbers[j] > len(seats):
-            print("Wprowadzono wartość, która nie mieści się w zakresie!\n")
-            exit()
+            print("Wprowadzono wartość, która nie mieści się w zakresie! Nastąpi powrót do menu głównego.\n")
+            return menu()
     for k in seats_numbers:
         if seats[k - 1] != None:
-            print("Wybrano miejsce, które jest już zajęte!\n")
-            exit()
+            print("Wybrano miejsce, które jest już zajęte! Nastąpi powrót do menu głównego.\n")
+            return menu()
         seats[k - 1] = name
     print("Rezerwacja miejsc zakończona pomyślnie!\n")
 
@@ -108,7 +113,7 @@ def add_multiple_reservations(seats:list):
 def cancel_all_reservations(seats:list):
     name = input("Podaj swoje imię: ")
     if name not in seats:
-        print("Nie znaleziono żadnej rezerwacji na podane imię!")
+        print("Nie znaleziono żadnej rezerwacji na podane imię! Nastąpi powrót do menu głównego.\n")
         return menu()
     for i in range(len(seats)):
         if seats[i] == name:
@@ -132,7 +137,7 @@ def load_seats_from_file(seats:list):
     check_file = os.path.isfile(path)
     if check_file != True:
         print("Wystąpił błąd, plik nie istnieje!")
-        exit()
+        return menu()
     file = open("kino.csv", "r")
     if file.readable():
         content = file.read().split(',')
@@ -149,9 +154,9 @@ def menu():
     seats = []
     load_seats_from_file(seats)
     while True:
-        print("----------------------------------")
-        print("---------------KINO---------------")
-        print("----------------------------------")
+        print("----------------------------------------")
+        print("------------------KINO------------------")
+        print("----------------------------------------")
         print("1 - WYŚWIETL STAN REZERWACJI MIEJSC")
         print("2 - DODAJ REZERWACJĘ")
         print("3 - USUŃ REZERWACJĘ")
@@ -160,7 +165,7 @@ def menu():
         print("6 - ZAREZERWUJ WIELE MIEJSC")
         print("7 - ANULUJ WSZYSTKIE SWOJE REZERWACJE")
         print("8 - WYJDŹ")
-        print("----------------------------------")
+        print("----------------------------------------")
         try:
             choice = int(input("Co chcesz zrobić?: "))        
         except ValueError:
