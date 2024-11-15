@@ -308,3 +308,25 @@ Miejsce nr 8 jest wolne
 Miejsce nr 9 jest wolne
 Miejsce nr 10 jest już zarezerwowane przez Wioletta
 ```
+## Funkcja `menu`
+Funkcja `menu` tworzy w konsoli proste menu, które ułatwia użytkownikowi korzystanie z programu. Użytkownik ma do wyboru 8 opcji i w zależności od tego, co wybierze, zostanie wywołana inna funkcja.
+### Przykładowe użycie
+```python
+menu() #Wywołanie funkcji menu utworzy w konsoli proste menu programu
+```
+### Output:
+```
+----------------------------------
+---------------KINO---------------
+----------------------------------
+1 - WYŚWIETL STAN REZERWACJI MIEJSC
+2 - DODAJ REZERWACJĘ
+3 - USUŃ REZERWACJĘ
+4 - ZMODYFIKUJ REZERWACJĘ
+5 - SPRAWDŹ DOSTĘPNOŚĆ DLA WIELU MIEJSC
+6 - ZAREZERWUJ WIELE MIEJSC
+7 - ANULUJ WSZYSTKIE SWOJE REZERWACJE
+8 - WYJDŹ
+----------------------------------
+Co chcesz zrobić?:
+```

@@ -1,3 +1,5 @@
+import os.path
+
 #Funkcja, która pozwala na wyświetlenie aktualnego stanu rezerwacji miejsc
 def print_seats(seats:list):
     for i in range(len(seats)):
@@ -13,14 +15,14 @@ def add_reservation(seats:list):
     try:
         seat_number = int(input("Podaj numer miejsca, które chcesz zarezerwować (miejsce musi być wolne): "))
     except ValueError:
-        print("Wprowadzono nieprawidłową wartość!\n")
-        exit()
+        print("Wprowadzono nieprawidłową wartość! Nastąpi powrót do menu głównego.\n")
+        return menu()
     if seat_number - 1 < 0 or seat_number - 1 > len(seats):
-        print("Wprowadzono nieprawidłową wartość!\n")
-        exit()
+        print("Wprowadzono nieprawidłową wartość! Nastąpi powrót do menu głównego.\n")
+        return menu()
     elif seats[seat_number - 1] != None:
-        print("Wybrane miejsce jest już zajęte!\n")
-        exit()
+        print("Wybrane miejsce jest już zajęte! Nastąpi powrót do menu głównego.\n")
+        menu()
     else:
         seats[seat_number - 1] = name
         print("Rezerwacja zakończona pomyślnie!\n")
@@ -105,6 +107,9 @@ def add_multiple_reservations(seats:list):
 #Funkcja, która pozwala na anulowanie wszystkich rezerwacji
 def cancel_all_reservations(seats:list):
     name = input("Podaj swoje imię: ")
+    if name not in seats:
+        print("Nie znaleziono żadnej rezerwacji na podane imię!")
+        return menu()
     for i in range(len(seats)):
         if seats[i] == name:
             seats[i] = None
@@ -113,30 +118,40 @@ def cancel_all_reservations(seats:list):
 #Funkcja, która zapisuje stan miejsc do pliku
 def save_seats_to_file(seats:list):
     file = open("kino.csv", "w")
-    for i in range(len(seats)):
-        if i == len(seats) - 1:
-            file.write(str(seats[i]))
-        else:
-            file.write(str(seats[i]) + ',')
-    print(seats[len(seats) - 1])
+    if file.writable():
+        for i in range(len(seats)):
+            if i == len(seats) - 1:
+                file.write(str(seats[i]))
+            else:
+                file.write(str(seats[i]) + ',')
     file.close()
 
 #Funkcja, która odczytuje stan miejsc z pliku
 def load_seats_from_file(seats:list):
+    path = "./kino.csv"
+    check_file = os.path.isfile(path)
+    if check_file != True:
+        print("Wystąpił błąd, plik nie istnieje!")
+        exit()
     file = open("kino.csv", "r")
-    content = file.read().split(',')
-    for i in content:
-        seats.append(i)
+    if file.readable():
+        content = file.read().split(',')
+        for i in content:
+            seats.append(i)
+        file.close()
+        for j in range(len(seats)):
+            if seats[j] == "None":
+                seats[j] = None
     file.close()
-    for j in range(len(seats)):
-        if seats[j] == "None":
-            seats[j] = None
 
 #Proste menu
 def menu():
     seats = []
     load_seats_from_file(seats)
     while True:
+        print("----------------------------------")
+        print("---------------KINO---------------")
+        print("----------------------------------")
         print("1 - WYŚWIETL STAN REZERWACJI MIEJSC")
         print("2 - DODAJ REZERWACJĘ")
         print("3 - USUŃ REZERWACJĘ")
@@ -145,7 +160,7 @@ def menu():
         print("6 - ZAREZERWUJ WIELE MIEJSC")
         print("7 - ANULUJ WSZYSTKIE SWOJE REZERWACJE")
         print("8 - WYJDŹ")
-        print("-----------------------------------")
+        print("----------------------------------")
         try:
             choice = int(input("Co chcesz zrobić?: "))        
         except ValueError:
@@ -168,9 +183,6 @@ def menu():
             case 8:
                 save_seats_to_file(seats)
                 exit()
-
-#menu()
-seats = [] #Tworzymy listę, w której będziemy przechowywać stan miejsc
-print_seats(seats) #Sprawdzamy początkowy stan miejsc z naszej listy za pomocą funkcji print_seats
-load_seats_from_file(seats) #Importujemy z pliku stan miejsc do listy seats
-print_seats(seats) 
+            case _:
+                print("Wybrano nieprawidłową opcję!\n")
+menu()
